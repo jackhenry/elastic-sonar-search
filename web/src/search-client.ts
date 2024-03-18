@@ -5,7 +5,7 @@ export function getSearchClient() {
   const client = createTRPCClient<SearchRouter>({
     links: [
       httpBatchLink({
-        url: "http://localhost:3000",
+        url: import.meta.env["FRONTEND_API_URL"] || "http://localhost:3000",
       }),
     ],
   });
