@@ -15,7 +15,7 @@
     "lint": "eslint -c ./eslint.config.js src/",
     "test:setup": "node --import tsx ./integration/setup.ts",
     "test:integration": "NODE_ENV=test node --import tsx --test ./integration/*.test.ts",
-    "start": "dotenv -- node ./dist/index.js"
+    "start": "node ./dist/index.js"
   },
   "keywords": [],
   "author": "",
@@ -43,6 +43,7 @@
     "cors": "^2.8.5",
     "graphql": "^16.8.1",
     "graphql-request": "^6.1.0",
+    "loglevel": "^1.9.1",
     "zod": "^3.22.4"
   }
 }
