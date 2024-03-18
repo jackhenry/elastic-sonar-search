@@ -1,3 +1,4 @@
+import log from "loglevel";
 import { ElasticClient } from "./client";
 import type {
   AccountsQuery,
@@ -89,6 +90,8 @@ export async function search(query: string) {
   const fields = [...new Set(mergedFields)];
   const response = await ElasticClient.instance().multiMatch(query, fields);
   if (response.status !== 200) {
+    log.error(`Search of term ${query} failed. Elastic response:`);
+    log.error(await response.json());
     return null;
   }
 
