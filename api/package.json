@@ -7,12 +7,15 @@
   "types": "./dist/types/index.ts",
   "scripts": {
     "dev": "dotenv -- tsx ./src/index.ts",
-    "build": "npm run clean && tsc",
+    "build:types": "tsc",
+    "build:bundle": "esbuild ./src/index.ts --bundle --platform=node --outfile=dist/index.js --format=esm",
+    "build": "npm run clean && npm run build:types && npm run build:bundle",
     "clean": "rimraf ./dist",
     "codegen": "graphql-codegen --config ./codegen/codegen.ts",
     "lint": "eslint -c ./eslint.config.js src/",
     "test:setup": "node --import tsx ./integration/setup.ts",
-    "test:integration": "NODE_ENV=test node --import tsx --test ./integration/*.test.ts"
+    "test:integration": "NODE_ENV=test node --import tsx --test ./integration/*.test.ts",
+    "start": "dotenv -- node ./dist/index.js"
   },
   "keywords": [],
   "author": "",
@@ -27,6 +30,7 @@
     "@testcontainers/elasticsearch": "^10.7.2",
     "@types/node": "^20.11.28",
     "dotenv-cli": "^7.4.1",
+    "esbuild": "^0.20.2",
     "eslint": "^8.57.0",
     "graphql-tag": "^2.12.6",
     "rimraf": "^5.0.5",
