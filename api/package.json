@@ -1,6 +1,6 @@
 {
   "name": "@elastic-sonar-search/api",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "type": "module",
   "module": "./src/index.ts",
