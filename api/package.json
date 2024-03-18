@@ -1,0 +1,44 @@
+{
+  "name": "@elastic-sonar-search/api",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "module": "./src/index.ts",
+  "types": "./dist/types/index.ts",
+  "scripts": {
+    "dev": "tsx ./src/index.ts",
+    "build": "npm run clean && tsc",
+    "clean": "rimraf ./dist",
+    "codegen": "graphql-codegen --config ./codegen/codegen.ts",
+    "lint": "eslint -c ./eslint.config.js src/",
+    "test:setup": "node --import tsx ./integration/setup.ts",
+    "test:integration": "NODE_ENV=test node --import tsx --test ./integration/*.test.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@elastic-sonar-search/api": "workspace:^",
+    "@elastic/elasticsearch": "^8.12.2",
+    "@graphql-codegen/cli": "^5.0.2",
+    "@graphql-codegen/typescript": "^4.0.6",
+    "@graphql-codegen/typescript-graphql-request": "^6.2.0",
+    "@graphql-codegen/typescript-operations": "^4.2.0",
+    "@testcontainers/elasticsearch": "^10.7.2",
+    "@types/node": "^20.11.28",
+    "dotenv": "^16.4.5",
+    "eslint": "^8.57.0",
+    "graphql-tag": "^2.12.6",
+    "rimraf": "^5.0.5",
+    "tsx": "^4.7.1",
+    "typescript": "^5.4.2",
+    "typescript-eslint": "^7.2.0"
+  },
+  "dependencies": {
+    "@trpc/server": "11.0.0-next-beta.315",
+    "cors": "^2.8.5",
+    "graphql": "^16.8.1",
+    "graphql-request": "^6.1.0",
+    "zod": "^3.22.4"
+  }
+}

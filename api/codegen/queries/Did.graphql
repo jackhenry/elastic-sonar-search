@@ -1,0 +1,50 @@
+query dids($paginator: Paginator) {
+  result: dids(paginator: $paginator) {
+    entities {
+      ... on Did {
+        number
+        voice_provider_id
+        rate_center_id
+        id
+        sonar_unique_id
+        created_at
+        updated_at
+        did_assignments {
+          entities {
+            did_id
+            account_id
+            service_id
+            id
+            sonar_unique_id
+            created_at
+            updated_at
+            __typename
+          }
+          __typename
+        }
+        did_assignment_histories {
+          entities {
+            account_id
+            assigned_datetime
+            did_assignment_id
+            did_id
+            removed_datetime
+            service_id
+            id
+            sonar_unique_id
+            created_at
+            updated_at
+            __typename
+          }
+          __typename
+        }
+        __typename
+      }
+    }
+    pageInfo: page_info {
+      totalPages: total_pages
+      totalCount: total_count
+      page
+    }
+  }
+}

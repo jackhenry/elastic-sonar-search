@@ -1,0 +1,40 @@
+query phonenumbers($paginator: Paginator) {
+  result: phone_numbers(paginator: $paginator) {
+    entities {
+      ... on PhoneNumber {
+        country
+        number
+        extension
+        contact_id
+        number_formatted
+        phone_number_type_id
+        sms_opt_in
+        id
+        sonar_unique_id
+        created_at
+        updated_at
+        contact {
+          name
+          role
+          primary
+          email_address
+          language
+          username
+          contactable_type
+          contactable_id
+          id
+          sonar_unique_id
+          created_at
+          updated_at
+          __typename
+        }
+        __typename
+      }
+    }
+    pageInfo: page_info {
+      totalPages: total_pages
+      totalCount: total_count
+      page
+    }
+  }
+}

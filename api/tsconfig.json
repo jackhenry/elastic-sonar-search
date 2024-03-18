@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "skipLibCheck": true,
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "target": "ESNext",
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "allowImportingTsExtensions": true,
+    "outDir": "dist",
+    "lib": ["ESNext"],
+    "types": ["node", "graphql"],
+    "baseUrl": ".",
+    "emitDeclarationOnly": true,
+    "declaration": true,
+    "declarationDir": "dist/types"
+  },
+  "exclude": ["node_modules"],
+  "include": ["src"]
+}

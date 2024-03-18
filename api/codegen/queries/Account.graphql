@@ -1,0 +1,63 @@
+query accounts($paginator: Paginator) {
+  result: accounts(paginator: $paginator) {
+    entities {
+      ... on Account {
+        name
+        account_status_id
+        account_type_id
+        is_delinquent
+        company_id
+        activation_date
+        next_bill_date
+        parent_account_id
+        geopoint
+        data_usage_percentage
+        next_recurring_charge_amount
+        id
+        sonar_unique_id
+        created_at
+        updated_at
+        account_status {
+          name
+          activates_account
+          color
+          icon
+          id
+          sonar_unique_id
+          created_at
+          updated_at
+          __typename
+        }
+        account_type {
+          name
+          color
+          icon
+          type
+          invoice_message_id
+          id
+          sonar_unique_id
+          created_at
+          updated_at
+          __typename
+        }
+        account_groups {
+          entities {
+            name
+            id
+            sonar_unique_id
+            created_at
+            updated_at
+            __typename
+          }
+          __typename
+        }
+        __typename
+      }
+    }
+    pageInfo: page_info {
+      totalPages: total_pages
+      totalCount: total_count
+      page
+    }
+  }
+}

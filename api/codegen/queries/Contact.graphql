@@ -1,0 +1,73 @@
+query contacts($paginator: Paginator) {
+  result: contacts(paginator: $paginator) {
+    entities {
+      ... on Contact {
+        name
+        role
+        primary
+        email_address
+        language
+        username
+        contactable_type
+        contactable_id
+        id
+        sonar_unique_id
+        created_at
+        updated_at
+        phone_numbers {
+          entities {
+            country
+            number
+            extension
+            contact_id
+            number_formatted
+            phone_number_type_id
+            sms_opt_in
+            id
+            sonar_unique_id
+            created_at
+            updated_at
+            phone_number_type {
+              name
+              sms_capable
+              id
+              sonar_unique_id
+              created_at
+              updated_at
+              __typename
+            }
+            __typename
+          }
+          __typename
+        }
+        contactable {
+          __typename
+          ... on Account {
+            name
+            account_status_id
+            account_type_id
+            is_delinquent
+            company_id
+            activation_date
+            next_bill_date
+            parent_account_id
+            geopoint
+            data_usage_percentage
+            next_recurring_charge_amount
+            id
+            sonar_unique_id
+            created_at
+            updated_at
+            __typename
+          }
+        }
+        __typename
+      }
+    }
+    pageInfo: page_info {
+      totalPages: total_pages
+      totalCount: total_count
+      page
+    }
+  }
+}

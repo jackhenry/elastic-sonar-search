@@ -1,0 +1,21 @@
+query networksites($paginator: Paginator) {
+  result: network_sites(paginator: $paginator) {
+    entities {
+      ... on NetworkSite {
+        name
+        height_in_meters
+        geopoint
+        id
+        sonar_unique_id
+        created_at
+        updated_at
+        __typename
+      }
+    }
+    pageInfo: page_info {
+      totalPages: total_pages
+      totalCount: total_count
+      page
+    }
+  }
+}

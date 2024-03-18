@@ -1,0 +1,32 @@
+query tickets($paginator: Paginator) {
+  result: tickets(paginator: $paginator) {
+    entities {
+      ... on Ticket {
+        global_updated_at
+        subject
+        description
+        status
+        priority
+        closed_at
+        due_date
+        ticketable_type
+        ticketable_id
+        parent_ticket_id
+        ticket_group_id
+        user_id
+        inbound_mailbox_id
+        spam_score
+        id
+        sonar_unique_id
+        created_at
+        updated_at
+        __typename
+      }
+    }
+    pageInfo: page_info {
+      totalPages: total_pages
+      totalCount: total_count
+      page
+    }
+  }
+}

@@ -1,0 +1,21 @@
+query radiusaccounts($paginator: Paginator) {
+  result: radius_accounts(paginator: $paginator) {
+    entities {
+      ... on RadiusAccount {
+        username
+        password
+        account_id
+        id
+        sonar_unique_id
+        created_at
+        updated_at
+        __typename
+      }
+    }
+    pageInfo: page_info {
+      totalPages: total_pages
+      totalCount: total_count
+      page
+    }
+  }
+}

@@ -1,0 +1,20 @@
+query uninventoriedmacaddresses($paginator: Paginator) {
+  result: uninventoried_mac_addresses(paginator: $paginator) {
+    entities {
+      ... on UninventoriedMacAddress {
+        account_id
+        mac_address
+        id
+        sonar_unique_id
+        created_at
+        updated_at
+        __typename
+      }
+    }
+    pageInfo: page_info {
+      totalPages: total_pages
+      totalCount: total_count
+      page
+    }
+  }
+}

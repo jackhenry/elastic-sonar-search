@@ -1,0 +1,109 @@
+query ipassignments($paginator: Paginator) {
+  result: ip_assignments(paginator: $paginator) {
+    entities {
+      ... on IpAssignment {
+        subnet
+        soft
+        reference
+        description
+        subnet_id
+        ip_pool_id
+        ipassignmentable_type
+        ipassignmentable_id
+        id
+        sonar_unique_id
+        created_at
+        updated_at
+        ip_pool {
+          name
+          ip_range
+          dhcp_server_identifier_id
+          subnet_id
+          ips_available
+          id
+          sonar_unique_id
+          created_at
+          updated_at
+          __typename
+        }
+        parent_subnet {
+          name
+          subnet
+          type
+          largest_cidr_available
+          supernet_id
+          polling_priority
+          poller_id
+          id
+          sonar_unique_id
+          created_at
+          updated_at
+          __typename
+        }
+        ipassignmentable {
+          __typename
+          ... on Account {
+            name
+            account_status_id
+            account_type_id
+            is_delinquent
+            company_id
+            activation_date
+            next_bill_date
+            parent_account_id
+            geopoint
+            data_usage_percentage
+            next_recurring_charge_amount
+            id
+            sonar_unique_id
+            created_at
+            updated_at
+            __typename
+          }
+          ... on NetworkSite {
+            name
+            height_in_meters
+            geopoint
+            id
+            sonar_unique_id
+            created_at
+            updated_at
+            __typename
+          }
+          ... on InventoryItem {
+            inventoryitemable_type
+            inventoryitemable_id
+            deployment_type_id
+            inventory_model_id
+            icmp_device_status
+            icmp_status_last_change
+            icmp_threshold_violation
+            snmp_device_status
+            snmp_status_message
+            snmp_status_last_change
+            overall_status
+            purchase_price
+            purchase_order_item_id
+            status
+            latitude
+            longitude
+            parent_inventory_item_id
+            preseem_status
+            claimed_user_id
+            id
+            sonar_unique_id
+            created_at
+            updated_at
+            __typename
+          }
+        }
+        __typename
+      }
+    }
+    pageInfo: page_info {
+      totalPages: total_pages
+      totalCount: total_count
+      page
+    }
+  }
+}

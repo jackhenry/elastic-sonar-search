@@ -1,0 +1,194 @@
+query customfielddata($paginator: Paginator) {
+  result: custom_field_data(paginator: $paginator) {
+    entities {
+      ... on CustomFieldData {
+        custom_field_id
+        value
+        customfielddataable_type
+        customfielddataable_id
+        id
+        sonar_unique_id
+        created_at
+        updated_at
+        customfielddataable {
+          ... on Account {
+            name
+            account_status_id
+            account_type_id
+            is_delinquent
+            company_id
+            activation_date
+            next_bill_date
+            parent_account_id
+            geopoint
+            data_usage_percentage
+            next_recurring_charge_amount
+            id
+            sonar_unique_id
+            created_at
+            updated_at
+            __typename
+          }
+          ... on Address {
+            address_status_id
+            line1
+            line2
+            city
+            county
+            subdivision
+            zip
+            country
+            latitude
+            longitude
+            fips
+            type
+            addressable_type
+            addressable_id
+            serviceable
+            is_anchor
+            anchor_address_id
+            billing_default_id
+            timezone
+            id
+            sonar_unique_id
+            created_at
+            updated_at
+            __typename
+          }
+          ... on Contact {
+            name
+            role
+            primary
+            email_address
+            language
+            username
+            contactable_type
+            contactable_id
+            id
+            sonar_unique_id
+            created_at
+            updated_at
+            __typename
+          }
+          ... on GenericInventoryAssignee {
+            name
+            id
+            sonar_unique_id
+            created_at
+            updated_at
+            __typename
+          }
+          ... on Job {
+            ticket_id
+            scheduled_datetime
+            length_in_minutes
+            complete
+            completed_successfully
+            completed_by_user_id
+            completion_datetime
+            completion_notes
+            job_type_id
+            skips_validation
+            jobbable_type
+            jobbable_id
+            id
+            sonar_unique_id
+            created_at
+            updated_at
+            job_type {
+              name
+              enabled
+              default_length_in_minutes
+              color
+              icon
+              allow_completion_with_incomplete_tasks
+              disconnects_account
+              all_companies
+              account_status_id_completion
+              account_status_id_failure
+              action_on_completion
+              action_on_failure
+              ticket_status_on_completion
+              ticket_status_on_failure
+              ticket_group_id_completion
+              ticket_group_id_failure
+              task_template_id
+              id
+              sonar_unique_id
+              created_at
+              updated_at
+              __typename
+            }
+            __typename
+          }
+          ... on NetworkSite {
+            name
+            height_in_meters
+            geopoint
+            id
+            sonar_unique_id
+            created_at
+            updated_at
+            __typename
+          }
+          ... on PurchaseOrderItem {
+            id
+            price
+            list_order
+            units
+            generic_quantity_received
+            purchase_order_id
+            vendor_item_id
+            PurchaseOrderItem_status: status
+            sonar_unique_id
+            created_at
+            updated_at
+            __typename
+          }
+          ... on Ticket {
+            global_updated_at
+            subject
+            description
+            status
+            priority
+            closed_at
+            due_date
+            ticketable_type
+            ticketable_id
+            parent_ticket_id
+            ticket_group_id
+            user_id
+            inbound_mailbox_id
+            spam_score
+            id
+            sonar_unique_id
+            created_at
+            updated_at
+            __typename
+          }
+          __typename
+        }
+        custom_field {
+          name
+          type
+          unique
+          entity_type
+          required
+          enum_options
+          id
+          sonar_unique_id
+          created_at
+          updated_at
+          __typename
+        }
+        __typename
+      }
+      __typename
+    }
+    pageInfo: page_info {
+      totalPages: total_pages
+      totalCount: total_count
+      page
+    }
+  }
+}

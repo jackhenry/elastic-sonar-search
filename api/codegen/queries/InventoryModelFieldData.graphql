@@ -1,0 +1,64 @@
+query inventorymodelfielddata($paginator: Paginator) {
+  result: inventory_model_field_data(paginator: $paginator) {
+    entities {
+      ... on InventoryModelFieldData {
+        inventory_model_field_id
+        inventory_item_id
+        value
+        id
+        sonar_unique_id
+        created_at
+        updated_at
+        inventory_model_field {
+          inventory_model_id
+          name
+          type
+          secondary_type
+          required
+          primary
+          unique
+          regexp
+          id
+          sonar_unique_id
+          created_at
+          updated_at
+          inventory_model {
+            enabled
+            manufacturer_id
+            inventory_model_category_id
+            icon
+            model_name
+            name
+            port
+            protocol
+            generic
+            network_monitoring_template_id
+            device_type
+            lte_sim_type
+            default_vendor_id
+            id
+            sonar_unique_id
+            created_at
+            updated_at
+            manufacturer {
+              name
+              id
+              sonar_unique_id
+              created_at
+              updated_at
+              __typename
+            }
+            __typename
+          }
+          __typename
+        }
+        __typename
+      }
+    }
+    pageInfo: page_info {
+      totalPages: total_pages
+      totalCount: total_count
+      page
+    }
+  }
+}
