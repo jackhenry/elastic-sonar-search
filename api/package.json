@@ -15,6 +15,7 @@
     "lint": "eslint -c ./eslint.config.js src/",
     "test:setup": "node --import tsx ./integration/setup.ts",
     "test:integration": "NODE_ENV=test node --import tsx --test ./integration/*.test.ts",
+    "mock-data": "dotenv -- tsx ./integration/generate-data.ts",
     "start": "node ./dist/index.js"
   },
   "keywords": [],
@@ -23,6 +24,7 @@
   "devDependencies": {
     "@elastic-sonar-search/api": "workspace:^",
     "@elastic/elasticsearch": "^8.12.2",
+    "@faker-js/faker": "^8.4.1",
     "@graphql-codegen/cli": "^5.0.2",
     "@graphql-codegen/typescript": "^4.0.6",
     "@graphql-codegen/typescript-graphql-request": "^6.2.0",
