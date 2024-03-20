@@ -7,12 +7,13 @@
     "isolatedModules": true,
     "esModuleInterop": true,
     "allowImportingTsExtensions": true,
+    "outDir": "types",
     "lib": ["ESNext"],
+    "types": ["node", "graphql"],
     "baseUrl": ".",
     "emitDeclarationOnly": true,
-    "declaration": true,
-    "declarationDir": "dist"
+    "declaration": true
   },
   "exclude": ["node_modules"],
-  "include": ["./index.ts"]
+  "include": ["../api/src/index.ts"]
 }

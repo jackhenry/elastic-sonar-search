@@ -21,7 +21,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@elastic-sonar-search/api": "workspace:^",
     "@elastic/elasticsearch": "^8.12.2",
     "@graphql-codegen/cli": "^5.0.2",
     "@graphql-codegen/typescript": "^4.0.6",

@@ -4,5 +4,10 @@
   "private": "true",
   "keywords": [],
   "author": "Jack Henry",
-  "license": "ISC"
+  "license": "ISC",
+  "workspaces": [
+    "api",
+    "web",
+    "types"
+  ]
 }
