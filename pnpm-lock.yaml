@@ -78,6 +78,15 @@ importers:
         specifier: ^7.2.0
         version: 7.2.0(eslint@8.57.0)(typescript@5.4.2)
 
+  router-type:
+    devDependencies:
+      '@elastic-sonar-search/api':
+        specifier: workspace:*
+        version: link:../api
+      typescript:
+        specifier: ^5.4.2
+        version: 5.4.2
+
   web:
     dependencies:
       '@trpc/client':
@@ -93,6 +102,9 @@ importers:
       '@elastic-sonar-search/api':
         specifier: workspace:*
         version: link:../api
+      '@elastic-sonar-search/router-type':
+        specifier: workspace:*
+        version: link:../router-type
       '@rushstack/eslint-patch':
         specifier: ^1.7.2
         version: 1.7.2
