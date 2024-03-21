@@ -1,4 +1,4 @@
-import type { GroupedSearchHits } from "@elastic-sonar-search/api";
+import type { GroupedSearchHits } from "@elastic-sonar-search/types";
 
 export function groupNameFromKey(key: keyof GroupedSearchHits): string {
   switch (key) {

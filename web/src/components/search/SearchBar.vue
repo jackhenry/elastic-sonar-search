@@ -4,7 +4,7 @@ import SearchInput from "./SearchInput.vue";
 import { setSearchTermSymbol } from "./keys";
 import { getSearchClient } from "../../search-client";
 import { useSearchHitsStore } from "../../store";
-import type { GroupedSearchHits } from "@elastic-sonar-search/api";
+import type { GroupedSearchHits } from "@elastic-sonar-search/types";
 
 const searchClient = getSearchClient();
 const { updateSearchHits } = useSearchHitsStore();
@@ -17,7 +17,7 @@ const setSearchTerm = (term: string) => {
 
 watch(searchQuery, async () => {
   const groups = (await searchClient.search.query(
-    searchQuery.value,
+    searchQuery.value
   )) as GroupedSearchHits;
   updateSearchHits(groups);
 });

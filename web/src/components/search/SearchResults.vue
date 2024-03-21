@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useSearchHitsStore } from "../../store";
 import { type Component, computed, defineAsyncComponent } from "vue";
-import { GroupedSearchHits } from "@elastic-sonar-search/api";
+import { GroupedSearchHits } from "@elastic-sonar-search/types";
 import ResultGroup from "./result/ResultGroup.vue";
 import { groupNameFromKey } from "../../helpers/group-names";
 

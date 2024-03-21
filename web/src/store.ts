@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import type { GroupedSearchHits, SearchHit } from "@elastic-sonar-search/api";
+import type { GroupedSearchHits, SearchHit } from "@elastic-sonar-search/types";
 import { ref } from "vue";
 
 export const useSearchHitsStore = defineStore("searchHits", () => {

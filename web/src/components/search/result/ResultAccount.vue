@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { GroupedSearchHits } from "@elastic-sonar-search/api";
+import type { GroupedSearchHits } from "@elastic-sonar-search/types";
 import ResultCard from "./ResultCard.vue";
 import Svg from "../../svg/SvgBase.vue";
 

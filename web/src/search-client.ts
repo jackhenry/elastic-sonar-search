@@ -1,5 +1,5 @@
 import { createTRPCClient, httpBatchLink } from "@trpc/client";
-import type { SearchRouter } from "@elastic-sonar-search/router-type";
+import type { SearchRouter } from "@elastic-sonar-search/types";
 
 export function getSearchClient() {
   const client = createTRPCClient<SearchRouter>({

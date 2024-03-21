@@ -2,7 +2,7 @@
   "name": "@elastic-sonar-search/types",
   "version": "0.0.7",
   "description": "Type package for @elastic-sonar-search/api",
-  "main": "",
+  "main": "./types/index.d.ts",
   "types": "./types/index.d.ts",
   "keywords": [
     "elastic-sonar-search",
