@@ -1,6 +1,6 @@
 {
   "name": "@elastic-sonar-search/types",
-  "version": "0.0.1",
+  "version": "0.0.6",
   "description": "Type package for @elastic-sonar-search/api",
   "main": "",
   "types": "./types/index.d.ts",
