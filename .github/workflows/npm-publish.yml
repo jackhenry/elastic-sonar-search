@@ -1,8 +1,9 @@
-name: Publish @elastic-sonar-search/router-type
+name: Publish @elastic-sonar-search/types to npmjs
 on:
   push:
-    branches:
-      - main
+    tags:
+      - "v*.*.*"
+
 jobs:
   build:
     runs-on: ubuntu-latest
