@@ -1,6 +1,6 @@
 {
   "name": "@elastic-sonar-search/types",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Type package for @elastic-sonar-search/api",
   "main": "",
   "types": "./types/index.d.ts",
@@ -15,9 +15,10 @@
   "author": "Jack Erickson",
   "license": "ISC",
   "devDependencies": {
-    "@trpc/server": "^11.0.0-next-beta.318",
-    "graphql-request": "^6.1.0",
     "rimraf": "^5.0.5",
     "typescript": "^5.4.3"
+  },
+  "peerDependencies": {
+    "@trpc/client": "^11.0.0-next-beta.318"
   }
 }
