@@ -6,7 +6,7 @@ The ultimate goal of this project is to create a global search of Sonar data tha
 
 ## Project Structure
 
-This repo currently consists of two packages:
+This repo currently consists of three packages:
 
 * 1. `@elastic-sonar-search/api`
   * A NodeJS server that provides a search endpoint for clients.
@@ -15,10 +15,16 @@ This repo currently consists of two packages:
 * 2. `@elastic-sonar-search/web`
   * A demo Vue application that allows global search of Sonar entities. Uses the `@trpc/client` package to make calls to the API.
   * **Note**: It is currently only possible to run the demo web application if you have API access to a Sonar instance.
+* 3. `@elastic-sonar-search/tests`
+  * Package containing types which are possibly useful when interacting with the API service. Specifically, the `SearchRouter` type which can be used to create a tRPC client.
 
 ## Running the API Service
 
+**A pre-existing ElasticSearch instance must be configured and accessible.** The simplest way to create an instance is through docker. 
+
 Currently, the recommended way of running the API service is through Docker.
+
+The API service listens for queries on port 3000.
 
 #### Using Docker
 
@@ -28,7 +34,6 @@ SONAR_ENDPOINT=https://company.sonar.software/api/graphql
 SONAR_TOKEN=a-sonar-api-key
 
 ELASTIC_ENDPOINT=http://localhost:9200
-ELASTIC_VERSION=8.12.2
 ELASTIC_USERNAME=elastic
 ELASTIC_PASSWORD=changeme
 ```
@@ -55,3 +60,39 @@ npm run codegen
 npm run build
 export $(cat .env | xargs) && node dist/index.js
 ```
+
+## Creating a tRPC client and Using the API
+
+The API service consists of a tRPC router that provides a `search` endpoint. To utilize this endpoint in a project, create a tRPC client with the `SearchRouter` type provided by `@elastic-sonar-search/types`.
+
+1. Install necessary packages
+```
+npm install @trpc/client@next
+npm install --save-dev @elastic-sonar-search/types
+```
+
+2. Use the `SearchRouter` type with the `createTRPCClient()` function
+```ts
+import type { SearchRouter } from "@elastic-sonar-search/types";
+import { createTRPCClient, httpBatchLink } from '@trpc/client';
+
+const searchClient = createTRPCClient<SearchRouter>({
+  links: [
+    httpBatchLink({
+      url: `${ URL to API service }`
+    })
+  ]
+})
+```
+
+3. Call the `search()` function query the ElasticSearch instance
+
+```ts
+  const results = await searchClient.query.search('John Doe');
+```
+
+## TODO
+
+- [ ] create an endpoint to manually sync the Elastic instance with Sonar data
+- [ ] Use Sonar's webhooks to automatically sync Elastic instance when a relevant event occurs
+- [ ] Allow the ability to override default query used to search the ElasticSearch instance
